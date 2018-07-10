@@ -9,6 +9,19 @@ ApplicationWindow {
     title: qsTr("Application Page");
 
     StackView {
+        id: stack
+        initialItem: registration
 
+        Component {
+            id: registration
+
+            Text {
+               text: stack.depth
+               anchors.centerIn: parent
+            }
+
+
+
+        }
     }
 }
