@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
 ApplicationWindow {
+    id: appWindow
     visible: true
     width: Screen.width
     height: Screen.height
@@ -19,19 +20,50 @@ ApplicationWindow {
     //StackView is also Inherited FRom Item Type so it can have width and height properties
     StackView {
         id: applicationStack
-        initialItem: registration
+        initialItem: welcomePage
         width: parent.width
         height: parent.height
 
         Component {
-            id: registration
+            id: welcomePage
 
-            Text {
-               horizontalAlignment: Text.AlignHCenter
-               fontSizeMode: Text.Fit
-               font.family: "Arial"
-               text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Three Options For Registration.</i>"
-            }
+            Item {
+
+              id:welcomePageContent
+              anchors.leftMargin: (Screen.width)*0.5
+              anchors.topMargin:  (Screen.height)*0.3
+
+              Text {
+                id: welcomeDescription
+                horizontalAlignment: Text.AlignHCenter
+                anchors.top: welcomePageContent.top
+                anchors.horizontalCenter: welcomePageContent.horizontalCenter
+                fontSizeMode: Text.Fit
+                font.family: "Arial"
+                text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Options For Registration.</i>"
+             }
+
+              Button {
+                 id: registerButton
+                 anchors.top: welcomeDescription.bottom
+                 anchors.horizontalCenter: welcomePageContent.horizontalCenter
+                 text: "<b>Register</b>"
+                 activeFocusOnPress: true
+                 style: ButtonStyle {
+                      background: Rectangle {
+                            implicitWidth: 100
+                            implicitHeight: 25
+                            border.width: control.activeFocus ? 2 : 1
+                            border.color: "#888"
+                            radius: 4
+                            gradient: Gradient {
+                                GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
+                                GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
+                            }
+                      }
+                 }
+              }
+          }
         }
-    }
+     }
 }
