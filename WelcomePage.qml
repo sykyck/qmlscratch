@@ -30,13 +30,12 @@ ApplicationWindow {
             Item {
 
               id:welcomePageContent
-              anchors.leftMargin: (Screen.width)*0.5
-              anchors.topMargin:  (Screen.height)*0.3
 
               Text {
                 id: welcomeDescription
                 horizontalAlignment: Text.AlignHCenter
                 anchors.top: welcomePageContent.top
+                anchors.topMargin: (Screen.height)*0.3
                 anchors.horizontalCenter: welcomePageContent.horizontalCenter
                 fontSizeMode: Text.Fit
                 font.family: "Arial"
