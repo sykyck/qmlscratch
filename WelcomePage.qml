@@ -4,24 +4,26 @@ import QtQuick.Controls 1.4
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
+    width: Screen.width
+    height: Screen.height
     title: qsTr("Application Page");
 
+    //StackView is also Inherited FRom Item Type so it can have width and height properties
     StackView {
-        id: stack
+        id: applicationStack
         initialItem: registration
+        width: parent.width
+        height: parent.height
 
         Component {
             id: registration
 
             Text {
-               text: stack.depth
-               anchors.centerIn: parent
+               horizontalAlignment: Text.AlignHCenter
+               fontSizeMode: Text.Fit
+               font.family: "Arial"
+               text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Three Options For Registration.</i>"
             }
-
-
-
         }
     }
 }
