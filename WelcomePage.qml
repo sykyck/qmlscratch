@@ -35,7 +35,7 @@ ApplicationWindow {
                 id: welcomeDescription
                 horizontalAlignment: Text.AlignHCenter
                 anchors.top: welcomePageContent.top
-                anchors.topMargin: (Screen.height)*0.3
+                anchors.topMargin: (Screen.height)*0.1
                 anchors.horizontalCenter: welcomePageContent.horizontalCenter
                 fontSizeMode: Text.Fit
                 font.family: "Arial"
@@ -45,13 +45,14 @@ ApplicationWindow {
               Button {
                  id: registerButton
                  anchors.top: welcomeDescription.bottom
+                 anchors.topMargin: (Screen.height)*0.1
                  anchors.horizontalCenter: welcomePageContent.horizontalCenter
                  text: "<b>Register</b>"
                  activeFocusOnPress: true
                  style: ButtonStyle {
                       background: Rectangle {
-                            implicitWidth: 100
-                            implicitHeight: 25
+                            implicitWidth: 0.5*(Screen.width)
+                            implicitHeight: 40
                             border.width: control.activeFocus ? 2 : 1
                             border.color: "#888"
                             radius: 4
