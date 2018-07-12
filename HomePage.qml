@@ -29,6 +29,8 @@ ApplicationWindow {
 
             Item {
 
+              signal registrationClicked()
+
               id:welcomePageContent
 
               Text {
@@ -62,6 +64,7 @@ ApplicationWindow {
                             }
                       }
                  }
+                onClicked: welcomePageContent.registrationClicked()
               }
           }
         }

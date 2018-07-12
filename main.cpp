@@ -1,5 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QObject>
+#include <QQmlComponent>
+#include "registerwithfacebook.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +13,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/WelcomePage.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/HomePage.qml")));
+
+    RegisterWithFacebook registerWithFacebook;
+    QObject::connect(registerWithFacebook, SIGNAL(registrationClicked()), &registerWithFacebook, SLOT(onRegisterWithFbClicked()));
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

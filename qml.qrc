@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>WelcomePage.qml</file>
+        <file>HomePage.qml</file>
         <file>images/sea-view.jpg</file>
     </qresource>
 </RCC>
