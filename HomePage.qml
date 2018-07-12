@@ -28,7 +28,7 @@ ApplicationWindow {
             id: welcomePage
 
             Item {
-
+              objectName: "welcomePageContent"
               signal registrationClicked()
 
               id:welcomePageContent
