@@ -13,4 +13,5 @@ RegisterWithFacebook::~RegisterWithFacebook()
 void RegisterWithFacebook::onRegisterWithFbClicked()
 {
    qDebug()<<"Register With Facebook Slot Called";
+
 }

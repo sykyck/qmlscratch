@@ -28,8 +28,6 @@ ApplicationWindow {
             id: welcomePage
 
             Item {
-              objectName: "welcomePageContent"
-              signal registrationClicked()
 
               id:welcomePageContent
 
@@ -64,7 +62,9 @@ ApplicationWindow {
                             }
                       }
                  }
-                onClicked: welcomePageContent.registrationClicked()
+                onClicked: {
+                    registerWithFacebook.onRegisterWithFbClicked();
+                }
               }
           }
         }
