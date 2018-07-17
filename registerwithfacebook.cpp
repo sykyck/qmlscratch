@@ -30,6 +30,7 @@ void RegisterWithFacebook::onRegisterWithFbClicked()
 void RegisterWithFacebook::onStatusChanged(QAbstractOAuth::Status status)
 {
     qDebug()<<"Current Authentication Status = "<< status;
+
 }
 
 void RegisterWithFacebook::onAuthorizationGranted()
