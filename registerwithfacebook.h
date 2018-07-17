@@ -6,7 +6,7 @@
 
 #include <QtNetworkAuth/QOAuthHttpServerReplyHandler>
 #include <QtNetworkAuth/QOAuth2AuthorizationCodeFlow>
-
+class QAbstractOAuth;
 class RegisterWithFacebook : public QObject
 {
     Q_OBJECT
@@ -21,7 +21,7 @@ public slots:
     void onAuthorizationGranted();
 
 private:
-    QOAuth2AuthorizationCodeFlow oauth2;
+    QOAuth2AuthorizationCodeFlow *oauth2;
 };
 
 #endif // REGISTERWITHFACEBOOK_H
