@@ -5,6 +5,7 @@ const QString clientAppFbIdentifier = "";
 RegisterWithFacebook::RegisterWithFacebook(QObject *parent) : QObject(parent)
 {
   qDebug()<<"Register With Facebook Constructer Called";
+
 }
 
 RegisterWithFacebook::~RegisterWithFacebook()

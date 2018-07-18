@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QString>
 
+#include "OAuth/QAbstractOAuth2Derived.h"
+
 class RegisterWithFacebook : public QObject
 {
     Q_OBJECT
@@ -15,6 +17,8 @@ public:
 public slots:
     void onRegisterWithFbClicked();
 
+private:
+    QAbstractOAuth2Derived oauth2;
 };
 
 #endif // REGISTERWITHFACEBOOK_H
