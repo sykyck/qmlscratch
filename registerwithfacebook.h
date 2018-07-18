@@ -3,10 +3,8 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QString>
 
-#include <QtNetworkAuth/QOAuthHttpServerReplyHandler>
-#include <QtNetworkAuth/QOAuth2AuthorizationCodeFlow>
-class QAbstractOAuth;
 class RegisterWithFacebook : public QObject
 {
     Q_OBJECT
@@ -15,13 +13,8 @@ public:
     ~RegisterWithFacebook();
 
 public slots:
-    void onStatusChanged(QAbstractOAuth::Status status);
     void onRegisterWithFbClicked();
-    void onAuthorizeWithBrowser(QUrl url);
-    void onAuthorizationGranted();
 
-private:
-    QOAuth2AuthorizationCodeFlow *oauth2;
 };
 
 #endif // REGISTERWITHFACEBOOK_H
