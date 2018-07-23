@@ -1,8 +1,8 @@
 #include "registerwithfacebook.h"
 #include "o0globals.h"
 
-const QString FB_APP_KEY = "227896037359072";
-const QString FB_APP_SECRET = "3d35b063872579cf7213e09e76b65ceb";
+const QString FB_APP_KEY = "267562924014185";
+const QString FB_APP_SECRET = "a40b46cb19ad5009519e93a83aa20c84";
 
 const QString FB_REQUEST_URL = "https://www.facebook.com/dialog/oauth";
 
@@ -21,9 +21,6 @@ RegisterWithFacebook::RegisterWithFacebook(QObject *parent) : QObject(parent)
   store->setGroupKey("facebook");
   o2Facebook_->setStore(store);
 
-  connect(o2Facebook_, SIGNAL(linkedChanged()), this, SLOT(onLinkedChanged()));
-  connect(o2Facebook_, SIGNAL(linkingFailed()), this, SIGNAL(linkingFailed()));
-  connect(o2Facebook_, SIGNAL(linkingSucceeded()), this, SLOT(onLinkingSucceeded()));
   connect(o2Facebook_, SIGNAL(openBrowser(QUrl)), this, SLOT(onOpenBrowser(QUrl)));
   connect(o2Facebook_, SIGNAL(closeBrowser()), this, SLOT(onCloseBrowser()));
 }
@@ -33,7 +30,21 @@ RegisterWithFacebook::~RegisterWithFacebook()
    qDebug()<<"Register With Facebook Destructer Called";
 }
 
+void RegisterWithFacebook::doOAuth(O2::GrantFlow grantFlowType) {
+   // qDebug() << "Starting OAuth 2 with grant flow type" << GRANTFLOW_STR(grantFlowType) << "...";
+    o2Facebook_->setGrantFlow(grantFlowType);
+    o2Facebook_->unlink();
+    o2Facebook_->link();
+}
+
 void RegisterWithFacebook::onRegisterWithFbClicked()
 {
    qDebug()<<"Register With Facebook Slot Called";
+   this->doOAuth(O2::GrantFlow::GrantFlowAuthorizationCode);
+}
+
+void RegisterWithFacebook::onOpenBrowser(QUrl url)
+{
+   qWarning()<<"Url To Open = "<<url;
+   QDesktopServices::openUrl(url);
 }

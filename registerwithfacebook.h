@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QString>
+#include <QDesktopServices>
 
 #include "OAuth/o2facebook.h"
 #include "o0settingsstore.h"
@@ -14,9 +15,11 @@ class RegisterWithFacebook : public QObject
 public:
     explicit RegisterWithFacebook(QObject *parent = nullptr);
     ~RegisterWithFacebook();
+    void doOAuth(O2::GrantFlow grantFlowType);
 
 public slots:
     void onRegisterWithFbClicked();
+    void onOpenBrowser(QUrl url);
 
 private:
     O2Facebook *o2Facebook_;
