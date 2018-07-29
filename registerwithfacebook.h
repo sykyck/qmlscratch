@@ -13,16 +13,22 @@ class RegisterWithFacebook : public QObject
 {
     Q_OBJECT
 public:
-    explicit RegisterWithFacebook(QObject *parent = nullptr);
+    O2Facebook *o2Facebook_;
+    explicit RegisterWithFacebook(O0SettingsStore *store, QObject *parent = nullptr);
     ~RegisterWithFacebook();
     void doOAuth(O2::GrantFlow grantFlowType);
+    void validateToken();
+
+signals:
+    void linkingSucceeded();
+    void linkingFailed();
+    void showMessageToRegister();
 
 public slots:
     void onRegisterWithFbClicked();
+    void onFinished();
     void onOpenBrowser(QUrl url);
 
-private:
-    O2Facebook *o2Facebook_;
 };
 
 #endif // REGISTERWITHFACEBOOK_H

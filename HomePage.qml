@@ -66,6 +66,10 @@ ApplicationWindow {
                     registerWithFacebook.onRegisterWithFbClicked();
                 }
               }
+              Connections {
+                 target: applicationData
+                 onShowMessageToRegister:
+              }
           }
         }
      }

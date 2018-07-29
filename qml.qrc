@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>HomePage.qml</file>
         <file>images/sea-view.jpg</file>
+        <file>PopUp.qml</file>
     </qresource>
 </RCC>

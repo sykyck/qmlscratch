@@ -8,6 +8,7 @@ const char O2_MIME_TYPE_XFORM[] = "application/x-www-form-urlencoded";
 const char O2_MIME_TYPE_JSON[] = "application/json";
 
 // QSettings key names
+const char LOGIN_WITH_FBTOKEN[] = "loginwithfbtoken";
 const char O2_KEY_TOKEN[] = "token.%1";
 const char O2_KEY_TOKEN_SECRET[] = "tokensecret.%1";
 const char O2_KEY_CODE[] = "code.%1";
