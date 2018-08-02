@@ -28,7 +28,8 @@ public slots:
     void onRegisterWithFbClicked();
     void onFinished();
     void onOpenBrowser(QUrl url);
-
+    void onLinkingFailed();
+    void onLinkingSucceeded();
 };
 
 #endif // REGISTERWITHFACEBOOK_H

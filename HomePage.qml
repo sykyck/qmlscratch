@@ -68,7 +68,7 @@ ApplicationWindow {
               }
               Connections {
                  target: applicationData
-                 onShowMessageToRegister:
+                 onShowMessageToRegister: load("qrc:/PopUp.qml");
               }
           }
         }

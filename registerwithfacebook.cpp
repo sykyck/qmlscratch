@@ -7,6 +7,8 @@ const QString FB_APP_SECRET = "a40b46cb19ad5009519e93a83aa20c84";
 const QString FB_REQUEST_URL = "https://www.facebook.com/dialog/oauth";
 const char FB_DEBUG_TOKEN[] = "https://graph.facebook.com/me?fields=id&access_token=%1";
 
+const int localPort = 1965;
+
 RegisterWithFacebook::RegisterWithFacebook(O0SettingsStore *store, QObject *parent) : QObject(parent)
 {
   qDebug()<<"Register With Facebook Constructer Called";
@@ -14,7 +16,7 @@ RegisterWithFacebook::RegisterWithFacebook(O0SettingsStore *store, QObject *pare
 
   o2Facebook_->setClientId(FB_APP_KEY);
   o2Facebook_->setClientSecret(FB_APP_SECRET);
-  //o2Facebook_->setLocalPort(localPort);
+  o2Facebook_->setLocalPort(localPort);
   o2Facebook_->setRequestUrl(FB_REQUEST_URL);
 
   // Create a store object for writing the received tokens
@@ -33,11 +35,12 @@ RegisterWithFacebook::~RegisterWithFacebook()
 }
 
 void RegisterWithFacebook::onLinkingFailed() {
+    qDebug()<<"OnLinkingFailed Called";
     emit showMessageToRegister();
 }
 
 void RegisterWithFacebook::onLinkingSucceeded() {
-
+   qDebug()<<"OnLinkingSucceeded Called";
 }
 
 void RegisterWithFacebook::doOAuth(O2::GrantFlow grantFlowType) {
