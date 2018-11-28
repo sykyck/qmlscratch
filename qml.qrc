@@ -4,5 +4,6 @@
         <file>images/sea-view.jpg</file>
         <file>PopUp.qml</file>
         <file>WelcomeComponent.qml</file>
+        <file>LoginComponent.qml</file>
     </qresource>
 </RCC>

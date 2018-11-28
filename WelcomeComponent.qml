@@ -3,7 +3,6 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
-
 Item {
 
       id:welcomePageContent
@@ -20,6 +19,7 @@ Item {
        }
 
       Button {
+         signal openLoginComponent()
          id: fbRegisterButton
          anchors.top: welcomeDescription.bottom
          anchors.topMargin: (Screen.height)*0.1
@@ -41,9 +41,11 @@ Item {
          }
         onClicked: {
             register.onRegisterWithFbClicked();
+            fbRegisterButton.openLoginComponent();
         }
       }
       Button {
+         signal openLoginComponent()
          id: googleRegisterButton
          anchors.top: fbRegisterButton.bottom
          anchors.topMargin: (Screen.height)*0.1
@@ -65,6 +67,7 @@ Item {
          }
         onClicked: {
             register.onRegisterWithGoogleClicked();
+            googleRegisterButton.openLoginComponent();
         }
       }
       Connections {

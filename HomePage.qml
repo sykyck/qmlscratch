@@ -24,8 +24,22 @@ ApplicationWindow {
         width: parent.width
         height: parent.height
 
-        Loader { source: "qrc:///WelcomeComponent.qml"
-                 x:parent.width/2
+        Loader {
+            id: pageLoader
+            source: "qrc:///WelcomeComponent.qml"
+            x:parent.width/2
+        }
+        Connections{
+            target:fbRegisterButton
+            onOpenLoginComponent:{
+                pageLoader.setSource("qrc:///LoginComponent.qml")
+            }
+        }
+        Connections{
+            target:googleRegisterButton
+            onOpenLoginComponent:{
+                pageLoader.setSource("qrc:///LoginComponent.qml")
+            }
         }
      }
 }
