@@ -1,7 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import "./src/buttons"
+import "./src/content"
+import "./src/styles"
 
 Item {
 
@@ -18,8 +21,7 @@ Item {
         text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Options For Registration.</i>"
        }
 
-      Button {
-         signal openLoginComponent()
+      ButtonDefault {
          id: fbRegisterButton
          anchors.top: welcomeDescription.bottom
          anchors.topMargin: (Screen.height)*0.1
@@ -28,24 +30,23 @@ Item {
          activeFocusOnPress: true
          style: ButtonStyle {
               background: Rectangle {
-                    implicitWidth: 0.5*(Screen.width)
-                    implicitHeight: 40
-                    border.width: control.activeFocus ? 2 : 1
-                    border.color: "#888"
-                    radius: 4
-                    gradient: Gradient {
-                        GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
-                        GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
-                    }
-              }
-         }
+                      implicitWidth: 0.4*(Screen.width)
+                      implicitHeight: 40
+                      border.width: control.activeFocus ? 2 : 1
+                      border.color: "#888"
+                      radius: 4
+                      gradient: Gradient {
+                          GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
+                          GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
+                      }
+             }
+        }
         onClicked: {
             register.onRegisterWithFbClicked();
-            fbRegisterButton.openLoginComponent();
+            welcomePageContent.parent.openLoginComponent();
         }
       }
       Button {
-         signal openLoginComponent()
          id: googleRegisterButton
          anchors.top: fbRegisterButton.bottom
          anchors.topMargin: (Screen.height)*0.1
@@ -54,7 +55,7 @@ Item {
          activeFocusOnPress: true
          style: ButtonStyle {
               background: Rectangle {
-                    implicitWidth: 0.5*(Screen.width)
+                    implicitWidth: 0.4*(Screen.width)
                     implicitHeight: 40
                     border.width: control.activeFocus ? 2 : 1
                     border.color: "#888"
@@ -67,11 +68,7 @@ Item {
          }
         onClicked: {
             register.onRegisterWithGoogleClicked();
-            googleRegisterButton.openLoginComponent();
+            welcomePageContent.parent.openLoginComponent();
         }
-      }
-      Connections {
-         target: applicationData
-         onShowMessageToRegister: load("qrc:/PopUp.qml");
       }
 }

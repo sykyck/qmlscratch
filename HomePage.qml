@@ -25,20 +25,22 @@ ApplicationWindow {
         height: parent.height
 
         Loader {
+            signal openLoginComponent()
             id: pageLoader
             source: "qrc:///WelcomeComponent.qml"
             x:parent.width/2
-        }
-        Connections{
-            target:fbRegisterButton
-            onOpenLoginComponent:{
-                pageLoader.setSource("qrc:///LoginComponent.qml")
+            Connections{
+                target:fbRegisterButton
+                onOpenLoginComponent:{
+                    pageLoader.setSource("qrc:///LoginComponent.qml")
+                }
             }
-        }
-        Connections{
-            target:googleRegisterButton
-            onOpenLoginComponent:{
-                pageLoader.setSource("qrc:///LoginComponent.qml")
+            Connections{
+                target:googleRegisterButton
+                onOpenLoginComponent:{
+                    console.log("Open Login Component signal received");
+                    pageLoader.setSource("qrc:///LoginComponent.qml")
+                }
             }
         }
      }

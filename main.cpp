@@ -20,10 +20,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("register", &_register);
 
-    if(settings.value(LASTTIME_LOGIN_WITH).toString().isEmpty())
-    {
+ //   if(settings.value(LASTTIME_LOGIN_WITH).toString().isEmpty())
+  //  {
        engine.load(QUrl(QStringLiteral("qrc:/HomePage.qml")));
-    }
+  //  }
 
     return app.exec();
 }
