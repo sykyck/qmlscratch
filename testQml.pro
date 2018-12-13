@@ -1,4 +1,4 @@
-QT += quick network
+QT += quick network quickcontrols2 svg
 CONFIG += c++11 openssl
 
 # The following define makes your compiler emit warnings if you use

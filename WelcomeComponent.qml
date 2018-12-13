@@ -2,12 +2,15 @@ import QtQuick 2.3
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls.Material 2.4
 import "./src/buttons"
 import "./src/content"
 import "./src/styles"
 
 Item {
-
+      Material.theme: Material.Dark
+      Material.accent: Material.Purple
+      Material.background: Material.Dark
       id:welcomePageContent
 
       Text {
@@ -21,31 +24,21 @@ Item {
         text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Options For Registration.</i>"
        }
 
-      ButtonDefault {
+      Button {
          id: fbRegisterButton
          anchors.top: welcomeDescription.bottom
          anchors.topMargin: (Screen.height)*0.1
          anchors.horizontalCenter: welcomePageContent.horizontalCenter
          text: "<b>Register With Facebook</b>"
          activeFocusOnPress: true
-         style: ButtonStyle {
-              background: Rectangle {
-                      implicitWidth: 0.4*(Screen.width)
-                      implicitHeight: 40
-                      border.width: control.activeFocus ? 2 : 1
-                      border.color: "#888"
-                      radius: 4
-                      gradient: Gradient {
-                          GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
-                          GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
-                      }
-             }
-        }
-        onClicked: {
-            register.onRegisterWithFbClicked();
-            welcomePageContent.parent.openLoginComponent();
-        }
+         width: 0.4*(Screen.width)
+         height: 40
+         onClicked: {
+           register.onRegisterWithFbClicked();
+           welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
+         }
       }
+
       Button {
          id: googleRegisterButton
          anchors.top: fbRegisterButton.bottom
@@ -53,22 +46,25 @@ Item {
          anchors.horizontalCenter: welcomePageContent.horizontalCenter
          text: "<b>Register With Google</b>"
          activeFocusOnPress: true
-         style: ButtonStyle {
-              background: Rectangle {
-                    implicitWidth: 0.4*(Screen.width)
-                    implicitHeight: 40
-                    border.width: control.activeFocus ? 2 : 1
-                    border.color: "#888"
-                    radius: 4
-                    gradient: Gradient {
-                        GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
-                        GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
-                    }
-              }
-         }
-        onClicked: {
+         width: 0.4*(Screen.width)
+         height: 40
+         onClicked: {
             register.onRegisterWithGoogleClicked();
-            welcomePageContent.parent.openLoginComponent();
+            welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
+        }
+      }
+
+      Button {
+         id: loginButton
+         anchors.top: googleRegisterButton.bottom
+         anchors.topMargin: (Screen.height)*0.1
+         anchors.horizontalCenter: welcomePageContent.horizontalCenter
+         text: "<b>Login</b>"
+         activeFocusOnPress: true
+         width: 0.4*(Screen.width)
+         height: 40
+         onClicked: {
+            welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
         }
       }
 }
