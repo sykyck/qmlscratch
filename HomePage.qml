@@ -9,10 +9,9 @@ ApplicationWindow {
     visible: true
     Material.theme: Material.Dark
     Material.accent: Material.Purple
-    Material.background: Material.Dark
     width: Screen.width
     height: Screen.height
-
+    color: "#000000"
     title: qsTr("Application Page");
 
     //StackView is also Inherited FRom Item Type so it can have width and height properties

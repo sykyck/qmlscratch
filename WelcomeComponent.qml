@@ -21,6 +21,7 @@ Item {
         anchors.horizontalCenter: welcomePageContent.horizontalCenter
         fontSizeMode: Text.Fit
         font.family: "Arial"
+        color:"#DAF7A6"
         text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Options For Registration.</i>"
        }
 
@@ -33,6 +34,7 @@ Item {
          activeFocusOnPress: true
          width: 0.4*(Screen.width)
          height: 40
+         style: BigButtonStyle{}
          onClicked: {
            register.onRegisterWithFbClicked();
            welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
@@ -48,6 +50,7 @@ Item {
          activeFocusOnPress: true
          width: 0.4*(Screen.width)
          height: 40
+         style: BigButtonStyle{}
          onClicked: {
             register.onRegisterWithGoogleClicked();
             welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
@@ -63,6 +66,7 @@ Item {
          activeFocusOnPress: true
          width: 0.4*(Screen.width)
          height: 40
+         style: BigButtonStyle{}
          onClicked: {
             welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
         }
