@@ -3,7 +3,10 @@
 #include <QQuickWindow>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include "register.h"
+#include <QtWebEngine>
+
+
+#include "registerandlogin.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,11 +21,15 @@ int main(int argc, char *argv[])
     QQuickStyle::setFallbackStyle("Material");
     qDebug()<<QQuickStyle::name();
 
+    //initialize the webengine view
+    QtWebEngine::initialize();
     QSettings settings;
-    Register _register;
+    RegisterAndLogin _registerAndLogin;
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("register", &_register);
+    //embedding it into qml code using context property
+    // there are two more ways
+    engine.rootContext()->setContextProperty("registerAndLogin", &_registerAndLogin);
 
  //   if(settings.value(LASTTIME_LOGIN_WITH).toString().isEmpty())
   //  {

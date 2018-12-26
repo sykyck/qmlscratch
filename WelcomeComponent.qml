@@ -36,8 +36,8 @@ Item {
          height: 40
          style: BigButtonStyle{}
          onClicked: {
-           register.onRegisterWithFbClicked();
-           welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
+           webView.visible = true;
+           registerAndLogin.onRegisterWithFbClicked();
          }
       }
 
@@ -52,23 +52,22 @@ Item {
          height: 40
          style: BigButtonStyle{}
          onClicked: {
-            register.onRegisterWithGoogleClicked();
-            welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
+            registerAndLogin.onRegisterWithGoogleClicked();
         }
       }
 
       Button {
-         id: loginButton
+         id: registerButton
          anchors.top: googleRegisterButton.bottom
          anchors.topMargin: (Screen.height)*0.1
          anchors.horizontalCenter: welcomePageContent.horizontalCenter
-         text: "<b>Login</b>"
+         text: "<b>Register With Us</b>"
          activeFocusOnPress: true
          width: 0.4*(Screen.width)
          height: 40
          style: BigButtonStyle{}
          onClicked: {
-            welcomePageContent.parent.setSource("qrc:///LoginComponent.qml")
+            welcomePageContent.parent.setSource("qrc:///RegisterComponent.qml")
         }
       }
 }

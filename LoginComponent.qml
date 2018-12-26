@@ -1,8 +1,11 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.11
+import QtQuick.Window 2.2
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Material 2.4
 import "./src/styles"
+import "./src/content"
 
 Item {
     Material.theme: Material.Dark
@@ -10,46 +13,84 @@ Item {
     Material.background: Material.Dark
     id:loginPageContent
 
-    Text {
-      id: loginDescription
-      horizontalAlignment: Text.AlignHCenter
-      anchors.top: loginPageContent.top
-      anchors.topMargin: (Screen.height)*0.1
-      anchors.horizontalCenter: loginPageContent.horizontalCenter
-      fontSizeMode: Text.Fit
-      font.family: "Arial"
-      color:"#DAF7A6"
-      text: "<i>Please Enter Login Details.</i>"
-     }
+ ColumnLayout {
 
-    TextField {
-        id: emailTextField
-        width: 240
-        horizontalAlignment: Text.AlignHCenter
-        anchors.top: loginDescription.top
-        anchors.topMargin: (Screen.height)*0.1
-        anchors.horizontalCenter: loginPageContent.horizontalCenter
-    }
+      anchors.centerIn: parent
 
-    TextField {
-        id: passwordTextField
-        width: 240
-        horizontalAlignment: Text.AlignHCenter
-        anchors.top: emailTextField.top
-        anchors.topMargin: (Screen.height)*0.1
-        anchors.horizontalCenter: loginPageContent.horizontalCenter
-        style:TextFieldStyle{
-             background: Rectangle {
-                   implicitWidth: 0.4*(Screen.width)
-                   implicitHeight: 40
-                   border.width: control.activeFocus ? 2 : 1
-                   border.color: "#888"
-                   radius: 4
-                   gradient: Gradient {
-                       GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
-                       GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
-                   }
-             }
+      RowLayout {
+         id:loginDescriptionRow
+         Layout.topMargin: (Screen.height)*0.05
+
+         TextContent {
+           id: loginDescription
+           horizontalAlignment: Text.AlignHCenter
+           text: "<b>Enter Login Details</b>"
+          }
+
+       }
+
+       RowLayout {
+          id:emailRow
+          Layout.topMargin: (Screen.height)*0.05
+
+          TextContent {
+            id: emailFieldDescription
+            horizontalAlignment: Text.AlignHCenter
+            text: "<b>Email</b>"
+          }
+
+          TextField {
+             id: emailTextField
+             Layout.minimumWidth: (Screen.width)*0.3
+             height: 30
+           }
         }
-    }
+
+        RowLayout {
+
+            id:passwordRow
+            Layout.topMargin: (Screen.height)*0.05
+
+
+           TextContent {
+              id: passwordFieldDescription
+              horizontalAlignment: Text.AlignHCenter
+              text: "<b>Password</b>"
+            }
+
+            TextField {
+              id: passwordTextField
+              Layout.minimumWidth: (Screen.width)*0.3
+              height: 30
+            }
+        }
+
+
+       RowLayout {
+
+           id:buttonRow
+           Layout.topMargin: (Screen.height)*0.05
+
+           Button {
+              id:submitFormButton
+              Layout.minimumWidth:(Screen.width)*0.2
+              style:BigButtonStyle{}
+              text:"Submit"
+              onClicked: {
+                 registerAndLogin.onLoginButtonClicked(emailTextField.text, passwordTextField.text);
+             }
+           }
+
+           Button {
+              id:registerButton
+              Layout.minimumWidth:(Screen.width)*0.2
+              style:BigButtonStyle{}
+              text:"Register"
+              onClicked: {
+                loginPageContent.parent.setSource("qrc:///WelcomeComponent.qml")
+             }
+           }
+       }
+ }
+
 }

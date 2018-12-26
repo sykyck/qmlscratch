@@ -21,6 +21,7 @@
         <file>src/fonts/fontawesome-webfont.ttf</file>
         <file>src/styles/IconListViewStyle.qml</file>
         <file>src/styles/DefaulListViewStyle.qml</file>
+        <file>src/styles/RadioButtonStyle.qml</file>
         <file>src/lists/IconListView.qml</file>
         <file>src/examples/ButtonPage.qml</file>
         <file>src/examples/DefaultListPage.qml</file>
@@ -54,5 +55,6 @@
         <file>src/examples/CardPage.qml</file>
         <file>src/styles/CardStyle.qml</file>
         <file>src/cards/Card.qml</file>
+        <file>RegisterComponent.qml</file>
     </qresource>
 </RCC>
