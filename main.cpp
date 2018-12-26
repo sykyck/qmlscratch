@@ -3,7 +3,6 @@
 #include <QQuickWindow>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <QtWebEngine>
 
 
 #include "registerandlogin.h"
@@ -22,7 +21,6 @@ int main(int argc, char *argv[])
     qDebug()<<QQuickStyle::name();
 
     //initialize the webengine view
-    QtWebEngine::initialize();
     QSettings settings;
     RegisterAndLogin _registerAndLogin;
 

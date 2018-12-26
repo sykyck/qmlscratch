@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Material 2.4
+import QtQuick.Layouts 1.11
 import "./src/buttons"
 import "./src/content"
 import "./src/styles"
@@ -13,61 +14,64 @@ Item {
       Material.background: Material.Dark
       id:welcomePageContent
 
-      Text {
-        id: welcomeDescription
-        horizontalAlignment: Text.AlignHCenter
-        anchors.top: welcomePageContent.top
-        anchors.topMargin: (Screen.height)*0.1
-        anchors.horizontalCenter: welcomePageContent.horizontalCenter
-        fontSizeMode: Text.Fit
-        font.family: "Arial"
-        color:"#DAF7A6"
-        text: "<b>Welcome To Our App!</b><br><i>Please Choose Any Of the Options For Registration.</i>"
-       }
+    ColumnLayout{
 
-      Button {
-         id: fbRegisterButton
-         anchors.top: welcomeDescription.bottom
-         anchors.topMargin: (Screen.height)*0.1
-         anchors.horizontalCenter: welcomePageContent.horizontalCenter
-         text: "<b>Register With Facebook</b>"
-         activeFocusOnPress: true
-         width: 0.4*(Screen.width)
-         height: 40
-         style: BigButtonStyle{}
-         onClicked: {
-           webView.visible = true;
-           registerAndLogin.onRegisterWithFbClicked();
+          anchors.horizontalCenter: parent.horizontalCenter
+
+          Text {
+            id: welcomeDescription
+            Layout.alignment: Qt.AlignCenter
+            Layout.topMargin: (Screen.height)*0.1
+            horizontalAlignment: Text.AlignHCenter
+            fontSizeMode: Text.Fit
+            font.family: "Arial"
+            color:"#DAF7A6"
+            text: "<b>Welcome To Our App!</b><br><b>Please Choose Any Of the Options For Registration.</b>"
          }
-      }
 
-      Button {
-         id: googleRegisterButton
-         anchors.top: fbRegisterButton.bottom
-         anchors.topMargin: (Screen.height)*0.1
-         anchors.horizontalCenter: welcomePageContent.horizontalCenter
-         text: "<b>Register With Google</b>"
-         activeFocusOnPress: true
-         width: 0.4*(Screen.width)
-         height: 40
-         style: BigButtonStyle{}
-         onClicked: {
-            registerAndLogin.onRegisterWithGoogleClicked();
-        }
-      }
 
-      Button {
-         id: registerButton
-         anchors.top: googleRegisterButton.bottom
-         anchors.topMargin: (Screen.height)*0.1
-         anchors.horizontalCenter: welcomePageContent.horizontalCenter
-         text: "<b>Register With Us</b>"
-         activeFocusOnPress: true
-         width: 0.4*(Screen.width)
-         height: 40
-         style: BigButtonStyle{}
-         onClicked: {
-            welcomePageContent.parent.setSource("qrc:///RegisterComponent.qml")
-        }
-      }
+          Button {
+             id: fbRegisterButton
+             Layout.topMargin: (Screen.height)*0.1
+             Layout.alignment: Qt.AlignCenter
+             Layout.minimumWidth: 0.4*(Screen.width)
+             text: "<b>Register With Facebook</b>"
+             activeFocusOnPress: true
+             height: 40
+             style: BigButtonStyle{}
+             onClicked: {
+              registerAndLogin.onRegisterWithFbClicked();
+            }
+          }
+
+
+          Button {
+             id: googleRegisterButton
+             Layout.topMargin: (Screen.height)*0.1
+             Layout.alignment: Qt.AlignCenter
+             Layout.minimumWidth: 0.4*(Screen.width)
+             text: "<b>Register With Google</b>"
+             activeFocusOnPress: true
+             height: 40
+             style: BigButtonStyle{}
+             onClicked: {
+                registerAndLogin.onRegisterWithGoogleClicked();
+             }
+          }
+
+
+          Button {
+             id: registerButton
+             Layout.topMargin: (Screen.height)*0.1
+             Layout.alignment: Qt.AlignCenter
+             Layout.minimumWidth: 0.4*(Screen.width)
+             text: "<b>Register With Us</b>"
+             activeFocusOnPress: true
+             height: 40
+             style: BigButtonStyle{}
+             onClicked: {
+                welcomePageContent.parent.setSource("qrc:///RegisterComponent.qml")
+             }
+          }
+    }
 }

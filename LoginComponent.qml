@@ -15,11 +15,12 @@ Item {
 
  ColumnLayout {
 
-      anchors.centerIn: parent
+     anchors.horizontalCenter: parent.horizontalCenter
 
       RowLayout {
          id:loginDescriptionRow
-         Layout.topMargin: (Screen.height)*0.05
+         Layout.topMargin: (Screen.height)*0.1
+         Layout.alignment: Qt.AlignCenter
 
          TextContent {
            id: loginDescription
@@ -32,6 +33,7 @@ Item {
        RowLayout {
           id:emailRow
           Layout.topMargin: (Screen.height)*0.05
+          Layout.alignment: Qt.AlignCenter
 
           TextContent {
             id: emailFieldDescription
@@ -50,7 +52,7 @@ Item {
 
             id:passwordRow
             Layout.topMargin: (Screen.height)*0.05
-
+            Layout.alignment: Qt.AlignCenter
 
            TextContent {
               id: passwordFieldDescription
@@ -70,6 +72,7 @@ Item {
 
            id:buttonRow
            Layout.topMargin: (Screen.height)*0.05
+           Layout.alignment: Qt.AlignCenter
 
            Button {
               id:submitFormButton

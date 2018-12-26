@@ -14,10 +14,13 @@ Item {
  Material.background: Material.Dark
 
  ColumnLayout{
-     anchors.centerIn: parent
+
+     anchors.horizontalCenter: parent.horizontalCenter
 
      TextContent {
         id: registerDescription
+        Layout.topMargin: (Screen.height)*0.1
+        Layout.alignment: Qt.AlignCenter
         horizontalAlignment: Text.AlignHCenter
         text: "<b>Please Enter Details For Registration</b>"
       }
@@ -26,6 +29,7 @@ Item {
 
              id:nameRow
              Layout.topMargin: (Screen.height)*0.05
+             Layout.alignment: Qt.AlignCenter
 
              TextContent {
                  id: nameDescription
@@ -45,6 +49,7 @@ Item {
 
          id:emailRow
          Layout.topMargin: (Screen.height)*0.05
+         Layout.alignment: Qt.AlignCenter
 
          TextContent {
             id: emailDescription
@@ -65,6 +70,7 @@ Item {
 
              id:passwordRow
              Layout.topMargin: (Screen.height)*0.05
+             Layout.alignment: Qt.AlignCenter
 
              TextContent {
                 id: passwordDescription
@@ -85,6 +91,7 @@ Item {
 
              id:genderRow
              Layout.topMargin: (Screen.height)*0.05
+             Layout.alignment: Qt.AlignCenter
 
              TextContent {
                 id: genderDescription
@@ -111,6 +118,7 @@ Item {
      RowLayout {
 
          Layout.topMargin: (Screen.height)*0.05
+         Layout.alignment: Qt.AlignCenter
 
          Button {
             id:submitFormButton
