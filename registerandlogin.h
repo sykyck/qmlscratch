@@ -11,6 +11,7 @@
 #include <QNetworkAccessManager>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QTcpServer>
 
 #include "constants.h"
 #include "settingsstore.h"
@@ -19,6 +20,7 @@ class RegisterAndLogin : public QObject
 {
     Q_OBJECT
 private:
+    QTcpServer *tcpServer;
 
 public:
     QSettings _settings;
@@ -31,7 +33,10 @@ signals:
 
 public slots:
     void onRegisterWithFbClicked();
+    void onDataAvailable();
     void onRegisterWithGoogleClicked();
+    void onNewConnectionReceived();
+    void onErrorReceived(QAbstractSocket::SocketError socketError);
     void onLoginButtonClicked(QString email, QString password);
     void networkRequestFinish(QNetworkReply*);
 };
