@@ -21,6 +21,7 @@ Item {
         id: registerDescription
         Layout.topMargin: (Screen.height)*0.1
         Layout.alignment: Qt.AlignCenter
+        Layout.maximumWidth: (Screen.width)*0.9
         horizontalAlignment: Text.AlignHCenter
         text: "<b>Please Enter Details For Registration</b>"
       }
@@ -31,18 +32,15 @@ Item {
              Layout.topMargin: (Screen.height)*0.05
              Layout.alignment: Qt.AlignCenter
 
-             TextContent {
-                 id: nameDescription
-                 horizontalAlignment: Text.AlignHCenter
-                 text: "<b>Name</b>"
-              }
-
              TextField {
                  id: nameTextField
-                 Layout.minimumWidth: (Screen.width)*0.3
-                 width: (Screen.width)*0.3
-                 height: 30
-              }
+                 style:LoginTextFieldStyle{}
+                 placeholderText: "Name"
+                 Layout.minimumWidth: (Screen.width)*0.6
+                 Layout.maximumWidth: (Screen.width)*0.6
+                 Layout.minimumHeight: (Screen.height)*0.05
+                 Layout.maximumHeight: (Screen.height)*0.05
+             }
      }
 
     RowLayout {
@@ -51,17 +49,14 @@ Item {
          Layout.topMargin: (Screen.height)*0.05
          Layout.alignment: Qt.AlignCenter
 
-         TextContent {
-            id: emailDescription
-            horizontalAlignment: Text.AlignHCenter
-            text: "<b>Email</b>"
-          }
-
          TextField {
              id: emailTextField
-             Layout.minimumWidth: (Screen.width)*0.3
-             width: (Screen.width)*0.3
-             height: 30
+             style:LoginTextFieldStyle{}
+             placeholderText: "Email"
+             Layout.minimumWidth: (Screen.width)*0.6
+             Layout.maximumWidth: (Screen.width)*0.6
+             Layout.minimumHeight: (Screen.height)*0.05
+             Layout.maximumHeight: (Screen.height)*0.05
           }
     }
 
@@ -72,18 +67,15 @@ Item {
              Layout.topMargin: (Screen.height)*0.05
              Layout.alignment: Qt.AlignCenter
 
-             TextContent {
-                id: passwordDescription
-                horizontalAlignment: Text.AlignHCenter
-                text: "<b>Password</b>"
-              }
-
              TextField {
                  id: passwordTextField
-                 Layout.minimumWidth: (Screen.width)*0.3
-                 width: (Screen.width)*0.3
-                 height: 30
-              }
+                 style:LoginTextFieldStyle{}
+                 placeholderText: "Password"
+                 Layout.minimumWidth: (Screen.width)*0.6
+                 Layout.maximumWidth: (Screen.width)*0.6
+                 Layout.minimumHeight: (Screen.height)*0.05
+                 Layout.maximumHeight: (Screen.height)*0.05
+             }
      }
 
 
@@ -93,23 +85,21 @@ Item {
              Layout.topMargin: (Screen.height)*0.05
              Layout.alignment: Qt.AlignCenter
 
-             TextContent {
-                id: genderDescription
-                horizontalAlignment: Text.AlignHCenter
-                text: "<b>Gender</b>"
-              }
-
              ExclusiveGroup { id: genderOptions }
 
              RadioButton {
+                 id: maleRadioButton
                  text: "Male"
-                 Layout.minimumWidth: (Screen.width)*0.1
+                 Layout.minimumWidth: (Screen.width)*0.3
+                 Layout.maximumWidth: (Screen.width)*0.3
                  exclusiveGroup: genderOptions
                  style:RadioButtonStyle{}
              }
              RadioButton {
+                 id: femaleRadioButton
                  text: "Female"
-                 Layout.minimumWidth: (Screen.width)*0.1
+                 Layout.minimumWidth: (Screen.width)*0.3
+                 Layout.maximumWidth: (Screen.width)*0.3
                  exclusiveGroup: genderOptions
                  style:RadioButtonStyle{}
              }
@@ -123,7 +113,10 @@ Item {
          Button {
             id:submitFormButton
             text:"Submit"
-            Layout.minimumWidth: (Screen.width)*0.20
+            Layout.minimumWidth: (Screen.width)*0.3
+            Layout.maximumWidth: (Screen.width)*0.3
+            Layout.minimumHeight: (Screen.height)*0.05
+            Layout.maximumHeight: (Screen.height)*0.05
             style:BigButtonStyle{}
             onClicked: {
                registerAndLogin.onLoginButtonClicked(emailTextField.text, passwordTextField.text);
@@ -133,7 +126,10 @@ Item {
          Button {
             id:loginButton
             text:"Login"
-            Layout.minimumWidth: (Screen.width)*0.20
+            Layout.minimumWidth: (Screen.width)*0.3
+            Layout.maximumWidth: (Screen.width)*0.3
+            Layout.minimumHeight: (Screen.height)*0.05
+            Layout.maximumHeight: (Screen.height)*0.05
             style:BigButtonStyle{}
             onClicked: {
                registerComponent.parent.setSource("qrc:///LoginComponent.qml")

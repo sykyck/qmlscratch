@@ -22,6 +22,7 @@ Item {
             id: welcomeDescription
             Layout.alignment: Qt.AlignCenter
             Layout.topMargin: (Screen.height)*0.1
+            Layout.maximumWidth: (Screen.width)*0.9
             horizontalAlignment: Text.AlignHCenter
             fontSizeMode: Text.Fit
             font.family: "Arial"
@@ -34,10 +35,14 @@ Item {
              id: fbRegisterButton
              Layout.topMargin: (Screen.height)*0.1
              Layout.alignment: Qt.AlignCenter
-             Layout.minimumWidth: 0.4*(Screen.width)
+             Layout.minimumWidth: 0.6*(Screen.width)
+             Layout.maximumWidth: 0.6*(Screen.width)
+             Layout.minimumHeight: (Screen.height)*0.05
+             Layout.maximumHeight: (Screen.height)*0.05
+             Layout.fillHeight: true
+             Layout.fillWidth: true
              text: "<b>Register With Facebook</b>"
              activeFocusOnPress: true
-             height: 40
              style: BigButtonStyle{}
              onClicked: {
               registerAndLogin.onRegisterWithFbClicked();
@@ -49,10 +54,14 @@ Item {
              id: googleRegisterButton
              Layout.topMargin: (Screen.height)*0.1
              Layout.alignment: Qt.AlignCenter
-             Layout.minimumWidth: 0.4*(Screen.width)
+             Layout.fillHeight: true
+             Layout.fillWidth: true
+             Layout.minimumWidth: 0.6*(Screen.width)
+             Layout.maximumWidth: 0.6*(Screen.width)
+             Layout.minimumHeight: (Screen.height)*0.05
+             Layout.maximumHeight: (Screen.height)*0.05
              text: "<b>Register With Google</b>"
              activeFocusOnPress: true
-             height: 40
              style: BigButtonStyle{}
              onClicked: {
                 registerAndLogin.onRegisterWithGoogleClicked();
@@ -64,10 +73,15 @@ Item {
              id: registerButton
              Layout.topMargin: (Screen.height)*0.1
              Layout.alignment: Qt.AlignCenter
-             Layout.minimumWidth: 0.4*(Screen.width)
+             Layout.minimumWidth: 0.6*(Screen.width)
+             Layout.maximumWidth: 0.6*(Screen.width)
+             Layout.minimumHeight: (Screen.height)*0.05
+             Layout.maximumHeight: (Screen.height)*0.05
+             Layout.fillHeight: true
+             Layout.fillWidth: true
              text: "<b>Register With Us</b>"
              activeFocusOnPress: true
-             height: 40
+             height: (Screen.height)*0.1
              style: BigButtonStyle{}
              onClicked: {
                 welcomePageContent.parent.setSource("qrc:///RegisterComponent.qml")

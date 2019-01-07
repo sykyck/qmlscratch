@@ -5,8 +5,8 @@ import QtQuick.Controls.Material 2.4
 
 RadioButtonStyle {
     background: Rectangle {
-          border.width: control.activeFocus ? 2 : 1
-          border.color: "#004D40"
+          id:radioButtonBackground
+          border.width: 0
           radius: 10
           color: "#004D40"
           gradient: Gradient {
