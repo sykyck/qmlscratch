@@ -4,7 +4,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 
-
+#include "constants.h"
 #include "registerandlogin.h"
 
 int main(int argc, char *argv[])
@@ -39,7 +39,13 @@ int main(int argc, char *argv[])
       engine.rootContext()->setContextProperty("Q_OS_MOBILE", QVariant(false));
       engine.rootContext()->setContextProperty("Q_OS_DESKTOP", QVariant(true));
     #endif
-
+      QVariantList menuItemList;
+      menuItemList.clear();
+      for(int i=0;i<MENU_ITEMS_LENGTH;i++)
+      {
+          menuItemList.append(MENU_ITEMS[i]);
+      }
+      engine.rootContext()->setContextProperty("menu_items", QVariant::fromValue(menuItemList));
  //   if(settings.value(LASTTIME_LOGIN_WITH).toString().isEmpty())
   //  {
        engine.load(QUrl(QStringLiteral("qrc:/HomePage.qml")));

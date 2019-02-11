@@ -1,7 +1,10 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 #include <QString>
+#include <strings.h>
 
+const int MENU_ITEMS_LENGTH = 4;
+const QString MENU_ITEMS[MENU_ITEMS_LENGTH]={"Account","About Us","Contact Us","Sign In"};
 const QString SERVER_URL = "https://chatindiaduplicate.herokuapp.com";
 //const QString SERVER_URL = "https://localhost:3000";
 const QString GOOGLE_REQUEST_URL = SERVER_URL + "/routes/googlelogin/sendreq";

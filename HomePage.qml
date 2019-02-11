@@ -30,9 +30,13 @@ ApplicationWindow {
               icon.source: "qrc:///images/menuicon.png"
               icon.height: parent.height
               icon.width:parent.height
-              onClicked: sidebarMenu.open()
+              onClicked:sidebarMenu.open();
            }
         }
+    }
+
+    ListModel {
+       id:menuModel
     }
 
     Drawer {
@@ -43,8 +47,34 @@ ApplicationWindow {
        } else if(Q_OS_DESKTOP){
          appWindow.width * 0.2
        }
-
        height: appWindow.height
+       onOpened: {
+           menuModel.clear();
+           for(var i = 0;i<menu_items.length;i++){
+                menuModel.append({"name":menu_items[i]});
+             }
+           }
+       ListView {
+           width: sidebarMenu.width
+           height: sidebarMenu.height
+           model:menuModel
+           clip: true
+           delegate: Item {
+               width: sidebarMenu.width
+               height: sidebarMenu.height*0.1
+               Button {
+                   width: parent.width
+                   height: parent.height
+                   hoverEnabled: true
+                   text: '<b>'+name+'</b>'
+                   font.family: "Neue Helvetica"
+                   font.pointSize: 13
+                   onClicked: {
+
+                   }
+               }
+           }
+       }
     }
 
     //StackView is also Inherited FRom Item Type so it can have width and height properties
