@@ -70,7 +70,11 @@ ApplicationWindow {
                    font.family: "Neue Helvetica"
                    font.pointSize: 13
                    onClicked: {
-
+                      if(name=="Account")
+                      {
+                          sidebarMenu.close();
+                          pageLoader.setSource("qrc:///ProfilePageComponent.qml");
+                      }
                    }
                }
            }
