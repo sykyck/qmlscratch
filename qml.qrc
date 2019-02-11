@@ -3,7 +3,7 @@
         <file>HomePage.qml</file>
         <file>images/sea-view.jpg</file>
         <file>images/menuicon.png</file>
-        <file>PopUp.qml</file>
+        <file>ProfilePageComponent.qml</file>
         <file>WelcomeComponent.qml</file>
         <file>LoginComponent.qml</file>
         <file>src/buttons/ButtonDefault.qml</file>
