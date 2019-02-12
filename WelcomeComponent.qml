@@ -8,10 +8,8 @@ import "./src/content"
 import "./src/styles"
 
 Item {
-      Material.theme: Material.Dark
-      Material.accent: Material.Purple
-      Material.background: Material.Dark
-      id:welcomePageContent
+
+    id:welcomePageContent
 
     ColumnLayout{
 

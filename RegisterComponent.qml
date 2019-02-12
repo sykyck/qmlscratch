@@ -8,9 +8,6 @@ import "./src/styles"
 
 Item {
  id :registerComponent
- Material.theme: Material.Dark
- Material.accent: Material.Purple
- Material.background: Material.Dark
 
  ColumnLayout{
 

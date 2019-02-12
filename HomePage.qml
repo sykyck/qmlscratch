@@ -7,14 +7,12 @@ import QtQuick.Controls.Material 2.4
 ApplicationWindow {
     id: appWindow
     visible: true
-    Material.theme: Material.Dark
-    Material.accent: Material.Purple
     width: Screen.width
     height: Screen.height
-    color: "#000000"
+    Material.background: "#000"
     title: qsTr("Application Page");
     header:ToolBar{
-
+        Material.background: Material.color(Material.Grey)
         id:appWindowToolbar
         height: Screen.height*0.06
 

@@ -7,9 +7,6 @@ import "./src/styles"
 import "./src/content"
 
 Item {
-    Material.theme: Material.Dark
-    Material.accent: Material.Purple
-    Material.background: Material.Dark
     id:loginPageContent
 
  ColumnLayout {

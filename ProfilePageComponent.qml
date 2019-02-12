@@ -8,9 +8,8 @@ import "./src/content"
 import "./src/styles"
 
 Item {
-    Material.theme: Material.Dark
-    Material.accent: Material.Purple
-    Material.background: Material.Dark
+
+
     id:profilePageContent
 
     RowLayout {
@@ -21,24 +20,29 @@ Item {
         ColumnLayout{
 
               id: profilePageFirstColumn
-              width:if(Q_OS_MOBILE) {
-                        0
-                    } else if(Q_OS_DESKTOP) {
-                       profilePageContent.width*0.2
-                    }
-              ListModel {
-                 id:profileMenuModel
-              }
+              Rectangle{
+                  id:profilePageFirstColumnContainer
+                  Material.background: Material.Grey
+                  width:if(Q_OS_MOBILE) {
+                            0
+                        } else if(Q_OS_DESKTOP) {
+                           profilePageContent.width*0.2
+                        }
+                  ListModel {
+                     id:profileMenuModel
+                  }
 
-              ListView {
-                  width: profilePageFirstColumn.width
-                  height: profilePageFirstColumn.height
-                  model:profileMenuModel
-                  clip: true
-                  delegate: Item {
+                  ListView {
                       width: profilePageFirstColumn.width
-                      height: profilePageFirstColumn.height*0.1
+                      height: profilePageFirstColumn.height
+                      model:profileMenuModel
+                      orientation:ListView.Vertical
+                      clip: true
+                      delegate: Rectangle {
+                          width: profilePageFirstColumn.width
+                          height: profilePageFirstColumn.height*0.1
 
+                      }
                   }
               }
         }
