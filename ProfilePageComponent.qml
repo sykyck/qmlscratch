@@ -9,25 +9,41 @@ import "./src/styles"
 
 Item {
 
-
     id:profilePageContent
+    width:parent.width
+    height:parent.height
+
 
     RowLayout {
-        id:columnContainingRow
-        anchors.horizontalCenter: profilePageContent.horizontalCenter
-
+        id:columnsContainerRow
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.leftMargin: 0
+        Layout.bottomMargin: 0
+        Layout.topMargin: 0
+        Layout.rightMargin: 0
 
         ColumnLayout{
 
               id: profilePageFirstColumn
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.leftMargin: 0
+              Layout.bottomMargin: 0
+              Layout.topMargin: 0
+              Layout.rightMargin: 0
               Rectangle{
                   id:profilePageFirstColumnContainer
-                  Material.background: Material.Grey
+                  color:"#C0C0C0"
+                  Layout.fillHeight: true
+                  Layout.fillWidth: true
+                  Material.background: Material.color(Material.Grey)
                   width:if(Q_OS_MOBILE) {
                             0
                         } else if(Q_OS_DESKTOP) {
                            profilePageContent.width*0.2
                         }
+                  height:profilePageContent.height
                   ListModel {
                      id:profileMenuModel
                   }
@@ -49,80 +65,22 @@ Item {
 
         ColumnLayout{
               id: profilePageSecondColumn
-              width:if(Q_OS_MOBILE) {
-                       profilePageContent.width
-                    } else if(Q_OS_DESKTOP) {
-                       profilePageContent.width*0.8
-                    }
-
-              Text {
-                id: welcomeDescription2
-                Layout.alignment: Qt.AlignCenter
-                Layout.topMargin: (Screen.height)*0.1
-                Layout.maximumWidth: (Screen.width)*0.9
-                horizontalAlignment: Text.AlignHCenter
-                fontSizeMode: Text.Fit
-                font.family: "Arial"
-                color:"#DAF7A6"
-                text: "<b>Welcome To Our App!</b><br><b>Please Choose Any Of the Options For Registration.</b>"
-             }
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.leftMargin: 0
+              Layout.bottomMargin: 0
+              Layout.topMargin: 0
+              Layout.rightMargin: 0
+              Rectangle{
+                  color:"#000"
+                  width:if(Q_OS_MOBILE) {
+                           profilePageContent.width
+                        } else if(Q_OS_DESKTOP) {
+                           profilePageContent.width*0.8
+                        }
+                 height:profilePageContent.height
 
 
-              Button {
-                 id: fbRegisterButton2
-                 Layout.topMargin: (Screen.height)*0.1
-                 Layout.alignment: Qt.AlignCenter
-                 Layout.minimumWidth: 0.6*(Screen.width)
-                 Layout.maximumWidth: 0.6*(Screen.width)
-                 Layout.minimumHeight: (Screen.height)*0.05
-                 Layout.maximumHeight: (Screen.height)*0.05
-                 Layout.fillHeight: true
-                 Layout.fillWidth: true
-                 text: "<b>Register With Facebook</b>"
-                 activeFocusOnPress: true
-                 style: BigButtonStyle{}
-                 onClicked: {
-                  registerAndLogin.onRegisterWithFbClicked();
-                }
-              }
-
-
-              Button {
-                 id: googleRegisterButton2
-                 Layout.topMargin: (Screen.height)*0.1
-                 Layout.alignment: Qt.AlignCenter
-                 Layout.fillHeight: true
-                 Layout.fillWidth: true
-                 Layout.minimumWidth: 0.6*(Screen.width)
-                 Layout.maximumWidth: 0.6*(Screen.width)
-                 Layout.minimumHeight: (Screen.height)*0.05
-                 Layout.maximumHeight: (Screen.height)*0.05
-                 text: "<b>Register With Google</b>"
-                 activeFocusOnPress: true
-                 style: BigButtonStyle{}
-                 onClicked: {
-                    registerAndLogin.onRegisterWithGoogleClicked();
-                 }
-              }
-
-
-              Button {
-                 id: registerButton2
-                 Layout.topMargin: (Screen.height)*0.1
-                 Layout.alignment: Qt.AlignCenter
-                 Layout.minimumWidth: 0.6*(Screen.width)
-                 Layout.maximumWidth: 0.6*(Screen.width)
-                 Layout.minimumHeight: (Screen.height)*0.05
-                 Layout.maximumHeight: (Screen.height)*0.05
-                 Layout.fillHeight: true
-                 Layout.fillWidth: true
-                 text: "<b>Register With Us</b>"
-                 activeFocusOnPress: true
-                 height: (Screen.height)*0.1
-                 style: BigButtonStyle{}
-                 onClicked: {
-                    welcomePageContent.parent.setSource("qrc:///RegisterComponent.qml")
-                 }
               }
         }
     }

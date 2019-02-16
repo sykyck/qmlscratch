@@ -10,6 +10,8 @@ import "./src/styles"
 Item {
 
     id:welcomePageContent
+    Material.background:Material.color("#FFF")
+    Material.theme:Material.Dark
 
     ColumnLayout{
 

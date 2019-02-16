@@ -9,9 +9,10 @@ ApplicationWindow {
     visible: true
     width: Screen.width
     height: Screen.height
-    Material.background: "#000"
+    color:"#000"
     title: qsTr("Application Page");
-    header:ToolBar{
+    header:ToolBar {
+
         Material.background: Material.color(Material.Grey)
         id:appWindowToolbar
         height: Screen.height*0.06
@@ -25,10 +26,13 @@ ApplicationWindow {
            ToolButton{
               id:menubutton
               Layout.fillHeight: parent
-              icon.source: "qrc:///images/menuicon.png"
-              icon.height: parent.height
-              icon.width:parent.height
-              onClicked:sidebarMenu.open();
+              Image{
+                fillMode: Image.PreserveAspectFit
+                source:"qrc:///images/menu.gif"
+              }
+              onClicked:function(){
+                  sidebarMenu.open();
+              }
            }
         }
     }
@@ -40,6 +44,7 @@ ApplicationWindow {
     Drawer {
        id:sidebarMenu
        y: 0
+       Material.background: Material.Grey
        width: if(Q_OS_MOBILE) {
          appWindow.width * 0.7
        } else if(Q_OS_DESKTOP){
@@ -70,6 +75,7 @@ ApplicationWindow {
                    onClicked: {
                       if(name=="Account")
                       {
+
                           sidebarMenu.close();
                           pageLoader.setSource("qrc:///ProfilePageComponent.qml");
                       }
