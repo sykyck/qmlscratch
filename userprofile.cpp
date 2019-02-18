@@ -2,7 +2,6 @@
 
 UserProfile::UserProfile(QObject *parent) : QObject(parent)
 {
-   this->friendsList = new QList<UserProfile>();
 }
 
 void UserProfile::setFirstName(QString firstname)
@@ -25,12 +24,9 @@ void UserProfile::setSessionId(QString sessionId)
     this->sessionId = sessionId;
 }
 
-void UserProfile::setFriendsList(QList<UserProfile> friendsList)
+void UserProfile::setFriendsList(QList<UserProfile *> friendsList)
 {
-    for(auto user=friendsList.begin();user!=friendsList.end();user++)
-    {
-        this->friendsList->append(*user);
-    }
+   this->friendsList = friendsList;
 }
 
 const QString UserProfile::getFirstName()
@@ -53,8 +49,8 @@ const QString UserProfile::getSessionId()
     return this->sessionId;
 }
 
-const QList<UserProfile> UserProfile::getFriendsList()
+const QList<UserProfile *> UserProfile::getFriendsList()
 {
-    return *(this->friendsList);
+    return (this->friendsList);
 }
 

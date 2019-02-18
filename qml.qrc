@@ -3,6 +3,7 @@
         <file>HomePage.qml</file>
         <file>images/sea-view.jpg</file>
         <file>images/menuicon.png</file>
+		<file>images/menu.gif</file>
         <file>ProfilePageComponent.qml</file>
         <file>WelcomeComponent.qml</file>
         <file>LoginComponent.qml</file>

@@ -13,19 +13,19 @@ public:
     const QString getSecondName();
     const QString getEmailId();
     const QString getSessionId();
-    const QList<UserProfile> getFriendsList();
+    const QList<UserProfile *> getFriendsList();
     void setFirstName(QString firstname);
     void setSecondName(QString secondname);
     void setEmailId(QString emailId);
     void setSessionId(QString sessionId);
-    void setFriendsList(QList<UserProfile> friendsList);
+    void setFriendsList(QList<UserProfile *> friendsList);
 
 private:
     QString firstName;
     QString secondName;
     QString emailId;
     QString sessionId;
-    QList<UserProfile> *friendsList;
+    QList<UserProfile *> friendsList;
 
 signals:
 
