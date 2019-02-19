@@ -72,40 +72,44 @@ Item {
               Layout.topMargin: 0
               Layout.rightMargin: 0
               Rectangle{
-                  id:profilePageContainer
-                  color:"#000"
-                  width:if(Q_OS_MOBILE) {
+
+                 id:profilePageContainer
+                 color:"#000"
+                 Layout.margins: 0
+                 width:if(Q_OS_MOBILE) {
                            profilePageContent.width
                         } else if(Q_OS_DESKTOP) {
                            profilePageContent.width*0.8
                         }
                  height:profilePageContent.height
+
                  Canvas{
-                          property real leftMargin:parent.width*0.05
-                          property real topMargin:parent.height*0.05
 
-                          id:backgroundCanvas
-                          width:parent.width*0.1
-                          height:parent.width*0.1
-                          x:leftMargin
-                          y:topMargin
+                      id:backgroundCanvas
+                      property real leftMargin:parent.width*0.05
+                      property real topMargin:parent.height*0.05
+                      x: leftMargin
+                      y: topMargin
+                      width:parent.width*0.1
+                      height:parent.width*0.1
 
+                      onPaint: {
+                          //coordinates are taken with respect to parent
+                          var centreX= backgroundCanvas.width/2
+                          var centreY= backgroundCanvas.height/2
+                          var canvasContext = backgroundCanvas.getContext('2d');
 
-                          onPaint: {
-                              var centreX= leftMargin+backgroundCanvas.width/2;
-                              var centreY= topMargin+backgroundCanvas.height/2;
-                              var canvasContext = backgroundCanvas.getContext('2d');
-
-                              canvasContext.beginPath();
-                              canvasContext.fillStyle = "#C0C0C0";
-                              canvasContext.moveTo(centreX, centreY);
-                              canvasContext.arc(centreX, centreY, backgroundCanvas.width / 2, 0, 2*Math.PI);
-                              canvasContext.lineTo(centreX, centreY);
-                              canvasContext.fill();
-                          }
+                          canvasContext.beginPath();
+                          canvasContext.fillStyle = "#C0C0C0";
+                          canvasContext.moveTo(centreX, centreY);
+                          canvasContext.arc(centreX, centreY, backgroundCanvas.width / 2, 0, 2*Math.PI);
+                          canvasContext.lineTo(centreX, centreY);
+                          canvasContext.fill();
                       }
-                 }
+                   }
 
-              }
-        }
-    }
+             }
+
+          }
+      }
+ }
