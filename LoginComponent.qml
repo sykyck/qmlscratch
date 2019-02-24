@@ -76,9 +76,9 @@ Item {
               Layout.minimumHeight: (Screen.height)*0.05
               Layout.maximumHeight: (Screen.height)*0.05
               style:BigButtonStyle{}
-              text:"Register"
+              text:"Forgot Password ?"
               onClicked: {
-                loginPageContent.parent.setSource("qrc:///WelcomeComponent.qml")
+                loginPageContent.parent.setSource("qrc:///ForgotPasswordComponent.qml")
              }
            }
        }

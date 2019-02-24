@@ -27,6 +27,7 @@ ApplicationWindow {
               id:menubutton
               Layout.fillHeight: parent
               Image{
+                anchors.fill:parent
                 fillMode: Image.PreserveAspectFit
                 source:"qrc:///images/menu.gif"
               }
