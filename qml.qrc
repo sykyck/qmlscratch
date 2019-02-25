@@ -7,6 +7,7 @@
         <file>ProfilePageComponent.qml</file>
         <file>WelcomeComponent.qml</file>
         <file>LoginComponent.qml</file>
+        <file>ForgotPasswordComponent.qml</file>
         <file>src/buttons/ButtonDefault.qml</file>
         <file>src/js/helper.js</file>
         <file>src/styles/TouchStyle.qml</file>
@@ -35,6 +36,7 @@
         <file>src/lists/AvatarListView.qml</file>
         <file>src/examples/AvatarListPage.qml</file>
         <file>src/content/TextContent.qml</file>
+        <file>src/content/HeadingText.qml</file>
         <file>src/examples/images/barrett.jpg</file>
         <file>src/examples/images/slimer.jpg</file>
         <file>src/examples/images/tully.jpg</file>

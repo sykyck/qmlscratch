@@ -62,8 +62,16 @@ Item {
               Layout.maximumWidth:(Screen.width)*0.3
               Layout.minimumHeight: (Screen.height)*0.05
               Layout.maximumHeight: (Screen.height)*0.05
-              style:BigButtonStyle{}
-              text:"Submit"
+              style:BigButtonStyle {
+                  label:Label{
+                      id: submitFormButtonLabel
+                      text:"Submit"
+                      padding:2
+                      fontSizeMode: Text.Fit
+                      horizontalAlignment: Text.AlignHCenter
+                      verticalAlignment: Text.AlignVCenter
+                  }
+              }
               onClicked: {
                  registerAndLogin.onLoginButtonClicked(emailTextField.text, passwordTextField.text);
              }
@@ -75,8 +83,16 @@ Item {
               Layout.maximumWidth:(Screen.width)*0.3
               Layout.minimumHeight: (Screen.height)*0.05
               Layout.maximumHeight: (Screen.height)*0.05
-              style:BigButtonStyle{}
-              text:"Forgot Password ?"
+              style:BigButtonStyle {
+                  label:Label{
+                      id: registerButtonLabel
+                      text:"Forgot Password ?"
+                      padding:2
+                      fontSizeMode: Text.Fit
+                      horizontalAlignment: Text.AlignHCenter
+                      verticalAlignment: Text.AlignVCenter
+                  }
+              }
               onClicked: {
                 loginPageContent.parent.setSource("qrc:///ForgotPasswordComponent.qml")
              }
