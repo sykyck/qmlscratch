@@ -36,8 +36,10 @@ public slots:
     void onDataAvailable();
     void onRegisterWithGoogleClicked();
     void onNewConnectionReceived();
+    void onRegisterButtonClicked(QString name, QString email, QString password, QString gender);
     void onErrorReceived(QAbstractSocket::SocketError socketError);
     void onLoginButtonClicked(QString email, QString password);
+    void resetPassword(QString email);
     void networkRequestFinish(QNetworkReply*);
 };
 

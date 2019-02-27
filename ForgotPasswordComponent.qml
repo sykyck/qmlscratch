@@ -45,7 +45,8 @@ Item {
          style:BigButtonStyle{}
          text:"Forgot Password ?"
          onClicked: {
-           loginPageContent.parent.setSource("qrc:///LoginComponent.qml")
+           loginPageContent.parent.setSource("qrc:///LoginComponent.qml");
+           registerAndLogin.resetPassword(emailTextField.text);
         }
       }
  }

@@ -94,7 +94,7 @@ Item {
                   }
               }
               onClicked: {
-                loginPageContent.parent.setSource("qrc:///ForgotPasswordComponent.qml")
+                loginPageContent.parent.setSource("qrc:///ForgotPasswordComponent.qml");
              }
            }
        }

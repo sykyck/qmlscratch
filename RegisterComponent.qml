@@ -115,7 +115,11 @@ Item {
             Layout.maximumHeight: (Screen.height)*0.05
             style:BigButtonStyle{}
             onClicked: {
-               registerAndLogin.onLoginButtonClicked(emailTextField.text, passwordTextField.text);
+                if(maleRadioButton.checked) {
+                  registerAndLogin.onRegisterButtonClicked(nameTextField.text, emailTextField.text, passwordTextField.text, "Male");
+                } else if(femaleRadioButton.checked) {
+                  registerAndLogin.onRegisterButtonClicked(nameTextField.text, emailTextField.text, passwordTextField.text, "Female");
+                }
            }
          }
 

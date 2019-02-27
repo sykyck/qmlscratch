@@ -105,20 +105,46 @@ void RegisterAndLogin::onRegisterWithGoogleClicked()
 void RegisterAndLogin::onLoginButtonClicked(QString email, QString password)
 {
    qDebug()<<"Value of Email Entered = "<<email<<",Value of password= "<<password;
-   QUrl serverUrl(LOGIN_URL);
-   QNetworkRequest request(serverUrl);
+   QUrl loginUrl(LOGIN_URL);
+   QNetworkRequest request(loginUrl);
    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
    QJsonObject json;
    json.insert("email", email);
    json.insert("password", password);
    QJsonDocument doc(json);
    QByteArray bytes = doc.toJson();
-   QNetworkAccessManager networkManager;
-   connect(&networkManager, SIGNAL(finished(QNetworkReply*)),this, SLOT(networkRequestFinish(QNetworkReply*)));
-   networkManager.post(request, bytes);
+   QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
+   connect(networkManager, SIGNAL(finished(QNetworkReply*)),this, SLOT(networkRequestFinish(QNetworkReply*)));
+   networkManager->post(request, bytes);
+}
+
+void RegisterAndLogin::onRegisterButtonClicked(QString name, QString email, QString password, QString gender)
+{
+   qDebug()<<"Name = "<<name;
+   qDebug()<<"Email = "<<email;
+   qDebug()<<"Password ="<<password;
+   qDebug()<<"Gender = "<< gender;
+   QUrl registerUrl(REGISTER_URL);
+   QNetworkRequest request(registerUrl);
+   request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+   QJsonObject json;
+   json.insert("name", name);
+   json.insert("email", email);
+   json.insert("password", password);
+   json.insert("gender", gender);
+   QJsonDocument doc(json);
+   QByteArray bytes = doc.toJson();
+   QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
+   connect(networkManager, SIGNAL(finished(QNetworkReply*)),this, SLOT(networkRequestFinish(QNetworkReply*)));
+   networkManager->post(request, bytes);
 }
 
 void RegisterAndLogin::networkRequestFinish(QNetworkReply *reply)
 {
     qDebug()<<"Value of reply->readall()"<<reply->readAll();
+}
+
+void RegisterAndLogin::resetPassword(QString email)
+{
+    qDebug()<<"Value of reply->readall()"<<email;
 }
